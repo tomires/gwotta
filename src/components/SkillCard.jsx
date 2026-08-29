@@ -1,4 +1,5 @@
 import { PROFESSION_COLORS } from '../lib/groupSkills.js'
+import { professionIconUrl } from '../lib/utils.js'
 
 export default function SkillCard({ skill, captured, onToggle, onSelect, contextLocation }) {
   const color = PROFESSION_COLORS[skill.profession] ?? PROFESSION_COLORS.Other
@@ -29,10 +30,17 @@ export default function SkillCard({ skill, captured, onToggle, onSelect, context
         onClick={() => onSelect(skill)}
         aria-label={`View details for ${skill.name}`}
       >
-        <div className="skill-card__name">{skill.name}</div>
         <div className="skill-card__meta">
-          {skill.profession && <span className="skill-card__badge">{skill.profession}</span>}
-          {skill.attribute && <span className="skill-card__attribute">{skill.attribute}</span>}
+          {skill.profession && (
+            <img
+              className="skill-card__profession-icon"
+              src={professionIconUrl(skill.profession)}
+              alt={skill.profession}
+              title={skill.profession}
+              loading="lazy"
+            />
+          )}
+          <span className="skill-card__name">{skill.name}</span>
         </div>
         <div className="skill-card__locations">
           {skill.captureLocations.length > 0
