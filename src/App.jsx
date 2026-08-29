@@ -1,10 +1,13 @@
 import { useMemo, useState } from 'react'
-import skills from './data/skills.json'
+import allSkills from './data/skills.json'
+import { IGNORED_SKILL_SLUGS } from './data/ignoredSkills.js'
 import { useProgress } from './lib/useProgress.js'
 import { GROUPERS } from './lib/groupSkills.js'
 import FilterBar from './components/FilterBar.jsx'
 import GroupSection from './components/GroupSection.jsx'
 import ProgressBar from './components/ProgressBar.jsx'
+
+const skills = allSkills.filter((skill) => !IGNORED_SKILL_SLUGS.has(skill.slug))
 
 const DEFAULT_FILTERS = {
   search: '',
