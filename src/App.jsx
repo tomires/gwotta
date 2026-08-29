@@ -80,7 +80,14 @@ function App() {
         </main>
       </div>
 
-      {selectedSkill && <SkillDetailSidebar skill={selectedSkill} onClose={() => setSelectedSkill(null)} />}
+      {selectedSkill && (
+        <SkillDetailSidebar
+          skill={selectedSkill}
+          onClose={() => setSelectedSkill(null)}
+          captured={isCaptured(selectedSkill.slug)}
+          onToggle={toggle}
+        />
+      )}
     </div>
   )
 }

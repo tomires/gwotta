@@ -23,7 +23,7 @@ function groupByMethod(acquisition) {
   return [...map.entries()]
 }
 
-export default function SkillDetailSidebar({ skill, onClose }) {
+export default function SkillDetailSidebar({ skill, onClose, captured, onToggle }) {
   const color = PROFESSION_COLORS[skill.profession] ?? PROFESSION_COLORS.Other
   const methodGroups = groupByMethod(skill.acquisition)
 
@@ -88,6 +88,15 @@ export default function SkillDetailSidebar({ skill, onClose }) {
           </ul>
         </div>
       ))}
+
+      <button
+        type="button"
+        className={`sidebar__toggle-captured${captured ? ' sidebar__toggle-captured--captured' : ''}`}
+        onClick={() => onToggle(skill.slug)}
+        aria-pressed={captured}
+      >
+        {captured ? '✓ Captured' : 'Mark as captured'}
+      </button>
     </aside>
   )
 }
