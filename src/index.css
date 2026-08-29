@@ -48,7 +48,10 @@ button {
   overflow-y: auto;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 1.25rem 3rem;
+  /* No top padding: the filter bar is sticky to this element's scrollport,
+     and top padding here would offset its "top: 0" stick point, leaving an
+     unpainted strip above it that scrolled content shows through. */
+  padding: 0 1.25rem 3rem;
 }
 
 .app__header {
@@ -99,6 +102,10 @@ button {
   color: var(--accent-strong);
 }
 
+.app__content {
+  margin-top: 1rem;
+}
+
 .app__empty {
   color: var(--text-dim);
   padding: 2rem 0;
@@ -115,10 +122,15 @@ button {
   padding: 1rem 0;
   position: sticky;
   top: 0;
-  background: var(--bg);
+  /* Semi-transparent + blurred rather than a solid fill: margins on a sticky
+     element aren't painted, so any margin used for spacing below it would
+     let scrolled content peek through in a hard-edged, broken-looking way.
+     A translucent blur reads as intentional instead. */
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 5;
   border-bottom: 1px solid var(--border);
-  margin-bottom: 1rem;
 }
 
 .filter-bar__search {
