@@ -164,28 +164,43 @@ function parseAcquisition(wikitext) {
   const section = endMatch ? rest.slice(0, endMatch.index) : rest
 
   const entries = []
-  let currentMethod = null
+  // Some wiki pages omit the '''Signet of Capture''' header entirely when
+  // it's the only acquisition method (e.g. "Wounding Strike"), so default to
+  // it until a real header says otherwise.
+  let currentMethod = 'Signet of Capture'
+  let methodExplicitlySet = false
   let currentCampaign = null
 
   for (const rawLine of section.split('\n')) {
     const line = rawLine.trim()
     if (!line) continue
 
-    const boldHeader = line.match(/^'''(.+)'''$/)
+    // The closing ''' is frequently missing on this wiki (e.g. "Escape",
+    // "Song of Restoration" write '''[[Signet of Capture]] with no closing
+    // marks), so treat it as optional rather than requiring a matched pair.
+    const boldHeader = line.match(/^'''(.+?)'''?$/)
     const h3Header = line.match(/^===\s*(.+?)\s*===$/)
     const defTerm = line.match(/^;\s*(.+)$/)
     if (boldHeader) {
       currentMethod = stripLinks(boldHeader[1])
+      methodExplicitlySet = true
       currentCampaign = null
       continue
     }
     if (h3Header) {
       currentMethod = stripLinks(h3Header[1])
+      methodExplicitlySet = true
       currentCampaign = null
       continue
     }
     if (defTerm) {
-      currentMethod = currentMethod ? `${currentMethod} — ${stripLinks(defTerm[1])}` : stripLinks(defTerm[1])
+      // Only compose onto a real preceding header (e.g. "Unlock only" +
+      // ";Heroes"). If nothing explicit preceded it, this def-term IS the
+      // method (e.g. a lone ";Skill quests" — replace the capture default).
+      currentMethod = methodExplicitlySet
+        ? `${currentMethod} — ${stripLinks(defTerm[1])}`
+        : stripLinks(defTerm[1])
+      methodExplicitlySet = true
       continue
     }
 

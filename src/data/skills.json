@@ -3666,8 +3666,14 @@
     "special": null,
     "description": "Elite Stance. For 1...8 second[s], you move 33% faster and have a 75% chance to block attacks.",
     "icon": "/icons/escape.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Snake Dance",
+      "Maishang Hills",
+      "Jaya Bluffs",
+      "Holdings of Chokhin",
+      "The Hidden City of Ahdashim"
+    ],
     "acquisition": [
       {
         "method": null,
@@ -3677,28 +3683,28 @@
         "note": "Whuup Buumbuul (Snake Dance and Talus Chute)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Factions",
         "npc": "Stsou Swiftscale",
         "location": "Maishang Hills",
         "note": "Stsou Swiftscale (Maishang Hills)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Factions",
         "npc": "Jiao Kuai the Swift",
         "location": "Jaya Bluffs",
         "note": "Jiao Kuai the Swift (Jaya Bluffs, only during Honorable Combat)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Nightfall",
         "npc": "Tenezel the Quick",
         "location": "Holdings of Chokhin",
         "note": "Tenezel the Quick (Holdings of Chokhin)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Nightfall",
         "npc": "Tenshek Roundbody",
         "location": "The Hidden City of Ahdashim",
@@ -5114,46 +5120,53 @@
     "special": null,
     "description": "Elite Skill. For 15 seconds, whenever you attack with a sword, all adjacent foes take 10...35 slashing damage.",
     "icon": "/icons/hundred-blades.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Hell's Precipice",
+      "Kessex Peak",
+      "Sunjiang District",
+      "Jaya Bluffs",
+      "Depths of Madness",
+      "Nightfallen Jahai"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Prophecies",
         "npc": "Spoiler-related boss",
         "location": "Hell's Precipice",
         "note": "\"Spoiler-related boss\" (Hell's Precipice)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Prophecies",
         "npc": "Galrath",
         "location": "Kessex Peak",
         "note": "Galrath (Kessex Peak, only during The Villainy of Galrath (Hard mode))"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Factions",
         "npc": "Warrior's Construct",
         "location": "Sunjiang District",
         "note": "Warrior's Construct (Sunjiang District mission and explorable area)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Factions",
         "npc": "Commander Chui Kantu",
         "location": "Jaya Bluffs",
         "note": "Commander Chui Kantu (Jaya Bluffs, only during Honorable Combat)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Nightfall",
         "npc": "Reaper of Agony",
         "location": "Depths of Madness",
         "note": "Reaper of Agony (Depths of Madness)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Nightfall",
         "npc": "Blade of Corruption (boss)",
         "location": "Nightfallen Jahai",
@@ -7639,11 +7652,13 @@
     "special": null,
     "description": "Elite Enchantment Spell. Target ally loses 0...9 condition[s] and hex[es]. For 1...3 second[s], conditions and hexes expire 90% faster on that ally. All your Smiting Prayers are disabled for 20 seconds.",
     "icon": "/icons/peace-and-harmony.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Snake Dance"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": null,
         "npc": "Marnta Doomspeaker",
         "location": "Snake Dance",
@@ -8497,18 +8512,21 @@
     "special": null,
     "description": "Elite Scythe Attack. If this attack hits, you Cripple your target for 3...15 seconds. You lose 1 Dervish enchantment. If an enchantment was removed, this attack knocks down for 2...3 seconds.",
     "icon": "/icons/reapers-sweep.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Sunward Marches",
+      "Varajar Fells"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Nightfall",
         "npc": "Dabineh Deathbringer",
         "location": "Sunward Marches",
         "note": "Dabineh Deathbringer (Sunward Marches)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Eye of the North",
         "npc": "Asterius the Mighty",
         "location": "Varajar Fells",
@@ -9771,11 +9789,13 @@
     "special": null,
     "description": "Elite Signet. If target ally is under the effects of an enchantment, that ally loses one hex and one condition.",
     "icon": "/icons/signet-of-removal.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "The Floodplain of Mahnkelon"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": null,
         "npc": "Commander Noss",
         "location": "The Floodplain of Mahnkelon",
@@ -10169,18 +10189,21 @@
     "special": null,
     "description": "Elite Chant. For 10 seconds, the next time each party member within earshot uses a skill, that party member gains 45...110 Health.",
     "icon": "/icons/song-of-restoration.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Garden of Seborhin",
+      "Heart of the Shiverpeaks"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Nightfall",
         "npc": "Toshau Sharpspear",
         "location": "Garden of Seborhin",
         "note": "Toshau Sharpspear (Garden of Seborhin)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Eye of the North",
         "npc": "Erasklion the Prolific",
         "location": "Heart of the Shiverpeaks",
@@ -10199,11 +10222,13 @@
     "special": null,
     "description": "Elite Hex Spell. For 30 seconds, every time target foe is healed, the healer takes 20...80 damage. This hex ends if target is suffering from a Smiting Prayers hex.",
     "icon": "/icons/soul-bind.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Sunjiang District"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": null,
         "npc": "Necromancer's Construct",
         "location": "Sunjiang District",
@@ -10607,18 +10632,21 @@
     "special": null,
     "description": "Elite Hex Spell. For 3...15 seconds, whenever target foe attacks or casts a spell on a creature with less Health, that foe loses 25...100 Health.",
     "icon": "/icons/spoil-victor.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Mourning Veil Falls",
+      "Silent Surf"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": null,
         "npc": "Foalcrest Darkwish",
         "location": "Mourning Veil Falls",
         "note": "Foalcrest Darkwish (Mourning Veil Falls)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": null,
         "npc": "Sourbeak Rotshell",
         "location": "Silent Surf",
@@ -10832,11 +10860,13 @@
     "special": null,
     "description": "Elite Shout. Your animal companion instantly moves to your target and causes Bleeding for 5...15 seconds with its next attack. The next time you hit with an attack, target foe is Crippled for 5...15 seconds.",
     "icon": "/icons/strike-as-one.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Turai's Procession"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": null,
         "npc": "Sergeant Behnwa",
         "location": "Turai's Procession",
@@ -10855,39 +10885,45 @@
     "special": null,
     "description": "Elite Spear Attack. If this attack hits, you deal damage. If it hits a foe suffering from a condition, that foe is also Dazed for 4...10 seconds.",
     "icon": "/icons/stunning-strike.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Tsumei Village",
+      "Domain of Fear",
+      "Warband of Brothers",
+      "Arachni's Haunt",
+      "Magus Stones"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Factions",
         "npc": "Captain Bei Chi",
         "location": "Tsumei Village",
         "note": "Captain Bei Chi (Tsumei Village, during A Treaty's a Treaty)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Nightfall",
         "npc": "Shrieker of Dread",
         "location": "Domain of Fear",
         "note": "Shrieker of Dread (Domain of Fear)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Eye of the North",
         "npc": "Jadam Spearspinner",
         "location": "Warband of Brothers",
         "note": "Jadam Spearspinner (Warband of Brothers)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Eye of the North",
         "npc": "Spider Matriarch",
         "location": "Arachni's Haunt",
         "note": "Spider Matriarch (Arachni's Haunt)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Eye of the North",
         "npc": "Timberland Guardian",
         "location": "Magus Stones",
@@ -12458,25 +12494,29 @@
     "special": null,
     "description": "Elite Scythe Attack. If this attack hits, you do damage, target foe suffers from Bleeding for 5...20 seconds, and you lose 1 Dervish enchantment. If an enchantment is removed, target foe also suffers from a Deep Wound for 5...20 seconds.",
     "icon": "/icons/wounding-strike.jpg",
-    "capturable": false,
-    "captureLocations": [],
+    "capturable": true,
+    "captureLocations": [
+      "Vehjin Mines",
+      "Bjora Marches",
+      "Raven's Point"
+    ],
     "acquisition": [
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Nightfall",
         "npc": "Marobeh Sharptail",
         "location": "Vehjin Mines",
         "note": "Marobeh Sharptail (Vehjin Mines)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Eye of the North",
         "npc": "Taameh the Frigid",
         "location": "Bjora Marches",
         "note": "Taameh the Frigid (Bjora Marches)"
       },
       {
-        "method": null,
+        "method": "Signet of Capture",
         "campaign": "Eye of the North",
         "npc": "Reaper of Destruction",
         "location": "Raven's Point",
