@@ -1,5 +1,12 @@
 import { PROFESSION_ORDER, CAMPAIGN_ORDER } from '../lib/groupSkills.js'
 
+// Every skill tagged with these campaigns turned out to be a special/ignored
+// skill (see ignoredSkills.js), so no real skill is ever in either campaign
+// — hide them from the filter so they don't dead-end the picker.
+const CAMPAIGN_FILTER_OPTIONS = CAMPAIGN_ORDER.filter(
+  (c) => c !== 'Eye of the North' && c !== 'Bonus Mission Pack',
+)
+
 export default function FilterBar({ filters, onChange }) {
   const set = (patch) => onChange({ ...filters, ...patch })
 
@@ -38,7 +45,7 @@ export default function FilterBar({ filters, onChange }) {
         <label>Campaign</label>
         <select value={filters.campaign} onChange={(e) => set({ campaign: e.target.value })}>
           <option value="">All</option>
-          {CAMPAIGN_ORDER.map((c) => (
+          {CAMPAIGN_FILTER_OPTIONS.map((c) => (
             <option key={c} value={c}>
               {c}
             </option>

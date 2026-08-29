@@ -357,8 +357,12 @@ button {
 
 .progress-bar__fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--accent), var(--success));
-  transition: width 0.2s ease;
+  background: var(--accent);
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.progress-bar__fill--complete {
+  background: var(--success);
 }
 
 .progress-bar__label {
@@ -466,21 +470,25 @@ button {
   font-size: 0.85rem;
 }
 
-.sidebar__method-group {
+.sidebar__region-group {
   margin-bottom: 0.9rem;
 }
 
-.sidebar__method-name {
-  font-size: 0.8rem;
+.sidebar__region-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
 }
 
-.sidebar__entry-list {
+.sidebar__npc-list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--border);
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -498,11 +506,6 @@ button {
   border: 1px solid var(--border);
   border-radius: 999px;
   padding: 0 0.4rem;
-  margin-right: 0.4rem;
-}
-
-.sidebar__entry-location {
-  white-space: nowrap;
 }
 
 .sidebar__toggle-captured {
