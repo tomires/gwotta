@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  // Relative rather than a hardcoded '/repo-name/': works unmodified on
+  // GitHub Pages project sites, user/org root sites, or any other subpath.
+  base: './',
   plugins: [
     react(),
     VitePWA({

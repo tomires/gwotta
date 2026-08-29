@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
-import { wikiUrl, professionIconUrl } from '../lib/utils.js'
+import { wikiUrl, professionIconUrl, assetUrl } from '../lib/utils.js'
 import { PROFESSION_COLORS } from '../lib/groupSkills.js'
 
 function WikiLink({ title, children }) {
   return (
     <a className="wiki-link" href={wikiUrl(title)} target="_blank" rel="noreferrer">
-      <img className="wiki-link__icon" src="/icons/icon-gww.ico" alt="" />
+      <img className="wiki-link__icon" src={assetUrl('/icons/icon-gww.ico')} alt="" />
       {children}
     </a>
   )
@@ -45,7 +45,7 @@ export default function SkillDetailSidebar({ skill, onClose, captured, onToggle 
       </button>
 
       <div className="sidebar__header">
-        {skill.icon && <img className="sidebar__icon" src={skill.icon} alt="" />}
+        {skill.icon && <img className="sidebar__icon" src={assetUrl(skill.icon)} alt="" />}
         <div>
           <h2 className="sidebar__name">
             <WikiLink title={skill.name}>{skill.name}</WikiLink>
