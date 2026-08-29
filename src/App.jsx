@@ -6,6 +6,7 @@ import { GROUPERS } from './lib/groupSkills.js'
 import FilterBar from './components/FilterBar.jsx'
 import GroupSection from './components/GroupSection.jsx'
 import ProgressBar from './components/ProgressBar.jsx'
+import SkillDetailSidebar from './components/SkillDetailSidebar.jsx'
 
 const skills = allSkills.filter((skill) => !IGNORED_SKILL_SLUGS.has(skill.slug))
 
@@ -19,6 +20,7 @@ const DEFAULT_FILTERS = {
 
 function App() {
   const [filters, setFilters] = useState(DEFAULT_FILTERS)
+  const [selectedSkill, setSelectedSkill] = useState(null)
   const { isCaptured, toggle, captured } = useProgress()
 
   const filtered = useMemo(() => {
@@ -68,9 +70,12 @@ function App() {
             skills={group.skills}
             isCaptured={isCaptured}
             onToggle={toggle}
+            onSelect={setSelectedSkill}
           />
         ))}
       </main>
+
+      {selectedSkill && <SkillDetailSidebar skill={selectedSkill} onClose={() => setSelectedSkill(null)} />}
     </div>
   )
 }

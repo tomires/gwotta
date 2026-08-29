@@ -182,14 +182,23 @@ button {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  text-align: left;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 0.6rem 0.75rem;
-  cursor: pointer;
-  color: inherit;
   transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.skill-card__icon-wrap,
+.skill-card__body {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .skill-card:hover {
@@ -236,6 +245,17 @@ button {
 .skill-card--captured .skill-card__check {
   opacity: 1;
   transform: scale(1);
+}
+
+.skill-card__icon-wrap:hover .skill-card__icon {
+  filter: brightness(1.2);
+}
+
+.skill-card__icon-wrap:focus-visible,
+.skill-card__body:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .skill-card__body {
@@ -306,4 +326,148 @@ button {
   font-size: 0.75rem;
   color: var(--text-dim);
   white-space: nowrap;
+}
+
+/* Skill detail sidebar */
+
+.sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100vw);
+  background: var(--bg-elevated);
+  border-left: 1px solid var(--border);
+  padding: 1.5rem;
+  overflow-y: auto;
+  z-index: 21;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.4);
+}
+
+.sidebar__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.sidebar__close:hover {
+  color: var(--accent-strong);
+  border-color: var(--accent);
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding-right: 2rem;
+}
+
+.sidebar__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  border: 2px solid var(--profession-color, var(--border));
+  flex: none;
+}
+
+.sidebar__name {
+  font-size: 1.15rem;
+  margin: 0 0 0.3rem;
+}
+
+.wiki-link {
+  color: var(--accent-strong);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.wiki-link:hover {
+  text-decoration: underline;
+}
+
+.wiki-link__icon {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  opacity: 0.85;
+}
+
+.sidebar__campaign {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 0.75rem 0 0;
+}
+
+.sidebar__description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text);
+  margin: 0.75rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar__section-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin: 1rem 0 0.5rem;
+}
+
+.sidebar__empty {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+.sidebar__method-group {
+  margin-bottom: 0.9rem;
+}
+
+.sidebar__method-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.sidebar__entry-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.sidebar__entry {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.sidebar__entry-campaign {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0 0.4rem;
+  margin-right: 0.4rem;
 }

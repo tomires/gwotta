@@ -1,7 +1,7 @@
 import SkillCard from './SkillCard.jsx'
 import ProgressBar from './ProgressBar.jsx'
 
-export default function GroupSection({ title, skills, isCaptured, onToggle }) {
+export default function GroupSection({ title, skills, isCaptured, onToggle, onSelect }) {
   const done = skills.filter((s) => isCaptured(s.slug)).length
 
   return (
@@ -17,6 +17,7 @@ export default function GroupSection({ title, skills, isCaptured, onToggle }) {
             skill={skill}
             captured={isCaptured(skill.slug)}
             onToggle={onToggle}
+            onSelect={onSelect}
           />
         ))}
       </div>

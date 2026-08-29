@@ -12,10 +12,16 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const DATA_OUT = path.join(ROOT, 'src/data/skills.json')
-const ICONS_DIR = path.join(ROOT, 'public/icons')
+const ICONS_DIR = path.join(ROOT, 'public/icons/skills')
 
 const API = 'https://wiki.guildwars.com/api.php'
 const KNOWN_CAMPAIGNS = ['Core', 'Prophecies', 'Factions', 'Nightfall', 'Eye of the North']
+// Matches lines like "Prophecies", "Prophecies and Eye of the North", or
+// "Factions, Nightfall" — dual/multi-campaign availability declarations that
+// are campaign context, not a real acquisition entry.
+const CAMPAIGN_LINE_RE = new RegExp(
+  `^(?:${KNOWN_CAMPAIGNS.join('|')})(?:\\s*(?:,|and)\\s*(?:${KNOWN_CAMPAIGNS.join('|')}))*$`,
+)
 
 async function apiGet(params) {
   const usp = new URLSearchParams({ format: 'json', ...params })
@@ -209,7 +215,7 @@ function parseAcquisition(wikitext) {
     const content = bullet[2]
     const plain = stripLinks(content)
 
-    if (KNOWN_CAMPAIGNS.includes(plain)) {
+    if (CAMPAIGN_LINE_RE.test(plain)) {
       currentCampaign = plain
       continue
     }
@@ -298,7 +304,7 @@ async function main() {
     const fileTitle = iconFileTitleByTitle.get(title)
     const iconUrl = fileTitle ? imageUrlByFileTitle.get(fileTitle) : null
     const iconExt = iconUrl ? path.extname(new URL(iconUrl).pathname) || '.jpg' : '.jpg'
-    const iconLocalPath = iconUrl ? `/icons/${slug}${iconExt}` : null
+    const iconLocalPath = iconUrl ? `/icons/skills/${slug}${iconExt}` : null
 
     skills.push({
       id: infobox.id ? Number(infobox.id) : null,
