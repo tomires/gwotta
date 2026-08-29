@@ -36,7 +36,16 @@ button {
   font-family: inherit;
 }
 
+.app-shell {
+  display: flex;
+  height: 100vh;
+}
+
 .app {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  overflow-y: auto;
   max-width: 1200px;
   margin: 0 auto;
   padding: 1rem 1.25rem 3rem;
@@ -330,24 +339,14 @@ button {
 
 /* Skill detail sidebar */
 
-.sidebar-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 20;
-}
-
 .sidebar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  flex: none;
   width: min(420px, 100vw);
+  height: 100vh;
   background: var(--bg-elevated);
   border-left: 1px solid var(--border);
   padding: 1.5rem;
   overflow-y: auto;
-  z-index: 21;
   box-shadow: -8px 0 24px rgba(0, 0, 0, 0.4);
 }
 

@@ -45,35 +45,37 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <header className="app__header">
-        <div className="app__title">
-          <h1>Elite Skill Tracker</h1>
-          <p className="app__subtitle">Guild Wars · {skills.length} elite skills</p>
-        </div>
-        <div className="app__overall-progress">
-          <ProgressBar done={captured.size} total={skills.length} />
-          <button type="button" className="app__reset" onClick={handleReset}>
-            Reset progress
-          </button>
-        </div>
-      </header>
+    <div className="app-shell">
+      <div className="app">
+        <header className="app__header">
+          <div className="app__title">
+            <h1>Elite Skill Tracker</h1>
+            <p className="app__subtitle">Guild Wars · {skills.length} elite skills</p>
+          </div>
+          <div className="app__overall-progress">
+            <ProgressBar done={captured.size} total={skills.length} />
+            <button type="button" className="app__reset" onClick={handleReset}>
+              Reset progress
+            </button>
+          </div>
+        </header>
 
-      <FilterBar filters={filters} onChange={setFilters} />
+        <FilterBar filters={filters} onChange={setFilters} />
 
-      <main className="app__content">
-        {groups.length === 0 && <p className="app__empty">No skills match your filters.</p>}
-        {groups.map((group) => (
-          <GroupSection
-            key={group.key}
-            title={group.key}
-            skills={group.skills}
-            isCaptured={isCaptured}
-            onToggle={toggle}
-            onSelect={setSelectedSkill}
-          />
-        ))}
-      </main>
+        <main className="app__content">
+          {groups.length === 0 && <p className="app__empty">No skills match your filters.</p>}
+          {groups.map((group) => (
+            <GroupSection
+              key={group.key}
+              title={group.key}
+              skills={group.skills}
+              isCaptured={isCaptured}
+              onToggle={toggle}
+              onSelect={setSelectedSkill}
+            />
+          ))}
+        </main>
+      </div>
 
       {selectedSkill && <SkillDetailSidebar skill={selectedSkill} onClose={() => setSelectedSkill(null)} />}
     </div>

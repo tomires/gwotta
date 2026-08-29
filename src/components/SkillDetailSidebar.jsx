@@ -34,57 +34,54 @@ export default function SkillDetailSidebar({ skill, onClose }) {
   }, [onClose])
 
   return (
-    <>
-      <div className="sidebar-backdrop" onClick={onClose} />
-      <aside className="sidebar" style={{ '--profession-color': color }}>
-        <button type="button" className="sidebar__close" onClick={onClose} aria-label="Close">
-          ✕
-        </button>
+    <aside className="sidebar" style={{ '--profession-color': color }}>
+      <button type="button" className="sidebar__close" onClick={onClose} aria-label="Close">
+        ✕
+      </button>
 
-        <div className="sidebar__header">
-          {skill.icon && <img className="sidebar__icon" src={skill.icon} alt="" />}
-          <div>
-            <h2 className="sidebar__name">
-              <WikiLink title={skill.name}>{skill.name}</WikiLink>
-            </h2>
-            <div className="skill-card__meta">
-              {skill.profession && <span className="skill-card__badge">{skill.profession}</span>}
-              {skill.attribute && <span className="skill-card__attribute">{skill.attribute}</span>}
-            </div>
+      <div className="sidebar__header">
+        {skill.icon && <img className="sidebar__icon" src={skill.icon} alt="" />}
+        <div>
+          <h2 className="sidebar__name">
+            <WikiLink title={skill.name}>{skill.name}</WikiLink>
+          </h2>
+          <div className="skill-card__meta">
+            {skill.profession && <span className="skill-card__badge">{skill.profession}</span>}
+            {skill.attribute && <span className="skill-card__attribute">{skill.attribute}</span>}
           </div>
         </div>
+      </div>
 
-        <p className="sidebar__campaign">
-          {skill.campaign}
-          {skill.type ? ` · ${skill.type}` : ''}
-        </p>
+      <p className="sidebar__campaign">
+        {skill.campaign}
+        {skill.type ? ` · ${skill.type}` : ''}
+      </p>
 
-        {skill.description && <p className="sidebar__description">{skill.description}</p>}
+      {skill.description && <p className="sidebar__description">{skill.description}</p>}
 
-        <h3 className="sidebar__section-title">Acquisition</h3>
-        {methodGroups.length === 0 && <p className="sidebar__empty">No acquisition data.</p>}
-        {methodGroups.map(([method, entries]) => (
-          <div key={method} className="sidebar__method-group">
-            <div className="sidebar__method-name">{method}</div>
-            <ul className="sidebar__entry-list">
-              {entries.map((entry, i) => (
-                <li key={i} className="sidebar__entry">
-                  {entry.campaign && <span className="sidebar__entry-campaign">{entry.campaign}</span>}
-                  {entry.npc ? <WikiLink title={entry.npc}>{entry.npc}</WikiLink> : null}
-                  {entry.location ? (
-                    <>
-                      {entry.npc ? ' (' : ''}
-                      <WikiLink title={entry.location}>{entry.location}</WikiLink>
-                      {entry.npc ? ')' : ''}
-                    </>
-                  ) : null}
-                  {!entry.npc && !entry.location && entry.note}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </aside>
-    </>
+      <h3 className="sidebar__section-title">Acquisition</h3>
+      {methodGroups.length === 0 && <p className="sidebar__empty">No acquisition data.</p>}
+      {methodGroups.map(([method, entries]) => (
+        <div key={method} className="sidebar__method-group">
+          <div className="sidebar__method-name">{method}</div>
+          <ul className="sidebar__entry-list">
+            {entries.map((entry, i) => (
+              <li key={i} className="sidebar__entry">
+                {entry.campaign && <span className="sidebar__entry-campaign">{entry.campaign}</span>}
+                {entry.npc ? <WikiLink title={entry.npc}>{entry.npc}</WikiLink> : null}
+                {entry.location ? (
+                  <>
+                    {entry.npc ? ' (' : ''}
+                    <WikiLink title={entry.location}>{entry.location}</WikiLink>
+                    {entry.npc ? ')' : ''}
+                  </>
+                ) : null}
+                {!entry.npc && !entry.location && entry.note}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </aside>
   )
 }
