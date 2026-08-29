@@ -12,16 +12,16 @@ export const PROFESSION_ORDER = [
 ]
 
 export const PROFESSION_COLORS = {
-  Warrior: '#b08968',
-  Ranger: '#6b8e4e',
-  Monk: '#d4af37',
-  Necromancer: '#6a4c93',
-  Mesmer: '#a23e6b',
-  Elementalist: '#d97b29',
-  Assassin: '#3b5166',
-  Ritualist: '#16a085',
-  Paragon: '#cfa15e',
-  Dervish: '#7d5ba6',
+  Warrior: '#dbb561',
+  Ranger: '#97c64d',
+  Monk: '#7fbed3',
+  Necromancer: '#489d5f',
+  Mesmer: '#704769',
+  Elementalist: '#974c4c',
+  Assassin: '#851448',
+  Ritualist: '#2fd4ba',
+  Paragon: '#8f622b',
+  Dervish: '#636d88',
   Monster: '#7f8c8d',
   Other: '#7f8c8d',
 }
