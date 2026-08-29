@@ -382,7 +382,12 @@ button {
   flex: none;
   width: min(420px, 100vw);
   height: 100vh;
-  background: var(--bg-elevated);
+  background-color: var(--bg-elevated);
+  background-image: radial-gradient(
+    ellipse 360px 80% at left,
+    color-mix(in srgb, var(--accent) 10%, transparent),
+    transparent 80%
+  );
   border-left: 1px solid var(--border);
   padding: 1.5rem;
   overflow-y: auto;
