@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { wikiUrl } from '../lib/utils.js'
+import { wikiUrl, professionIconUrl } from '../lib/utils.js'
 import { PROFESSION_COLORS } from '../lib/groupSkills.js'
 
 function WikiLink({ title, children }) {
@@ -51,8 +51,15 @@ export default function SkillDetailSidebar({ skill, onClose, captured, onToggle 
             <WikiLink title={skill.name}>{skill.name}</WikiLink>
           </h2>
           <div className="skill-card__meta">
-            {skill.profession && <span className="skill-card__badge">{skill.profession}</span>}
-            {skill.attribute && <span className="skill-card__attribute">{skill.attribute}</span>}
+            {skill.profession && (
+              <img
+                className="skill-card__profession-icon"
+                src={professionIconUrl(skill.profession)}
+                alt={skill.profession}
+                title={skill.profession}
+              />
+            )}
+            <span className="skill-card__attribute">{skill.attribute || 'No attribute'}</span>
           </div>
         </div>
       </div>
