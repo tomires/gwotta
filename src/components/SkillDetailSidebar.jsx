@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { wikiUrl } from '../lib/utils.js'
 import { PROFESSION_COLORS } from '../lib/groupSkills.js'
 
+const NBSP = ' '
+
 function WikiLink({ title, children }) {
   return (
     <a className="wiki-link" href={wikiUrl(title)} target="_blank" rel="noreferrer">
@@ -70,11 +72,15 @@ export default function SkillDetailSidebar({ skill, onClose }) {
                 {entry.campaign && <span className="sidebar__entry-campaign">{entry.campaign}</span>}
                 {entry.npc ? <WikiLink title={entry.npc}>{entry.npc}</WikiLink> : null}
                 {entry.location ? (
-                  <>
-                    {entry.npc ? ' (' : ''}
+                  entry.npc ? (
+                    <span className="sidebar__entry-location">
+                      {` (${NBSP}`}
+                      <WikiLink title={entry.location}>{entry.location}</WikiLink>
+                      {`${NBSP})`}
+                    </span>
+                  ) : (
                     <WikiLink title={entry.location}>{entry.location}</WikiLink>
-                    {entry.npc ? ')' : ''}
-                  </>
+                  )
                 ) : null}
                 {!entry.npc && !entry.location && entry.note}
               </li>

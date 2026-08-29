@@ -483,3 +483,7 @@ button {
   padding: 0 0.4rem;
   margin-right: 0.4rem;
 }
+
+.sidebar__entry-location {
+  white-space: nowrap;
+}
