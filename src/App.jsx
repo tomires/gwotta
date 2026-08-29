@@ -49,8 +49,7 @@ function App() {
       <div className="app">
         <header className="app__header">
           <div className="app__title">
-            <h1>Elite Skill Tracker</h1>
-            <p className="app__subtitle">Guild Wars · {skills.length} elite skills</p>
+            <h1>gwotta catch 'em all</h1>
           </div>
           <div className="app__overall-progress">
             <ProgressBar done={captured.size} total={skills.length} />
