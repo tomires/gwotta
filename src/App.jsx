@@ -49,7 +49,10 @@ function App() {
       <div className="app">
         <header className="app__header">
           <div className="app__title">
-            <h1>gwotta catch 'em all</h1>
+            <h1>
+              <span className="app__title-accent">gwotta</span>{' '}
+              <span className="app__title-secondary">catch 'em all</span>
+            </h1>
           </div>
           <div className="app__overall-progress">
             <ProgressBar done={captured.size} total={skills.length} />

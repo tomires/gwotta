@@ -67,7 +67,16 @@ button {
 
 .app__title h1 {
   font-size: 1.6rem;
+  color: var(--text);
+}
+
+.app__title-accent {
   color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.app__title-secondary {
+  color: var(--text-dim);
 }
 
 .app__subtitle {
