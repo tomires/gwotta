@@ -1,7 +1,9 @@
 import { PROFESSION_COLORS } from '../lib/groupSkills.js'
 
-export default function SkillCard({ skill, captured, onToggle, onSelect }) {
+export default function SkillCard({ skill, captured, onToggle, onSelect, contextLocation }) {
   const color = PROFESSION_COLORS[skill.profession] ?? PROFESSION_COLORS.Other
+  const primaryLocation = contextLocation ?? skill.captureLocations[0]
+  const extraCount = skill.captureLocations.length - 1
 
   return (
     <div
@@ -34,8 +36,7 @@ export default function SkillCard({ skill, captured, onToggle, onSelect }) {
         </div>
         <div className="skill-card__locations">
           {skill.captureLocations.length > 0
-            ? skill.captureLocations[0] +
-              (skill.captureLocations.length > 1 ? ` (+${skill.captureLocations.length - 1})` : '')
+            ? primaryLocation + (extraCount > 0 ? ` (+${extraCount})` : '')
             : 'Unlocked via quest / trainer'}
         </div>
       </button>

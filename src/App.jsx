@@ -71,6 +71,7 @@ function App() {
               isCaptured={isCaptured}
               onToggle={toggle}
               onSelect={setSelectedSkill}
+              groupBy={filters.groupBy}
             />
           ))}
         </main>
