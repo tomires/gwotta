@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { wikiUrl, professionIconUrl, assetUrl } from '../lib/utils.js'
 import { PROFESSION_COLORS } from '../lib/groupSkills.js'
+import { ANNOTATED_SKILLS } from '../data/annotatedSkills.js'
 
 function WikiLink({ title, children }) {
   return (
@@ -43,6 +44,7 @@ function groupByRegion(acquisition) {
 export default function SkillDetailSidebar({ skill, onClose, captured, onToggle }) {
   const color = PROFESSION_COLORS[skill.profession] ?? PROFESSION_COLORS.Other
   const regionGroups = groupByRegion(skill.acquisition)
+  const annotation = ANNOTATED_SKILLS[skill.slug]
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -63,6 +65,9 @@ export default function SkillDetailSidebar({ skill, onClose, captured, onToggle 
         <div>
           <h2 className="sidebar__name">
             <WikiLink title={skill.name}>{skill.name}</WikiLink>
+            {annotation && (
+              <img className="skill-card__star" src={assetUrl('/icons/icon-star.png')} alt="Note" title={annotation} />
+            )}
           </h2>
           <div className="skill-card__meta">
             {skill.profession && (

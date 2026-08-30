@@ -1,10 +1,12 @@
 import { PROFESSION_COLORS } from '../lib/groupSkills.js'
 import { professionIconUrl, assetUrl } from '../lib/utils.js'
+import { ANNOTATED_SKILLS } from '../data/annotatedSkills.js'
 
 export default function SkillCard({ skill, captured, onToggle, onSelect, contextLocation }) {
   const color = PROFESSION_COLORS[skill.profession] ?? PROFESSION_COLORS.Other
   const primaryLocation = contextLocation ?? skill.captureLocations[0]
   const extraCount = skill.captureLocations.length - 1
+  const annotation = ANNOTATED_SKILLS[skill.slug]
 
   return (
     <div
@@ -41,6 +43,9 @@ export default function SkillCard({ skill, captured, onToggle, onSelect, context
             />
           )}
           <span className="skill-card__name">{skill.name}</span>
+          {annotation && (
+            <img className="skill-card__star" src={assetUrl('/icons/icon-star.png')} alt="Note" title={annotation} />
+          )}
         </div>
         <div className="skill-card__locations">
           {skill.captureLocations.length > 0

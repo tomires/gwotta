@@ -337,6 +337,12 @@ button {
   text-overflow: ellipsis;
 }
 
+.skill-card__star {
+  flex: none;
+  width: 13px;
+  height: 13px;
+}
+
 .skill-card__meta {
   display: flex;
   gap: 0.4rem;
@@ -461,6 +467,9 @@ button {
 }
 
 .sidebar__name {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 1.15rem;
   margin: 0 0 0.3rem;
 }
