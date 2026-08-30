@@ -176,14 +176,40 @@ button {
   border-bottom: 1px solid var(--border);
 }
 
-.filter-bar__search {
+.filter-bar__search-wrap {
+  position: relative;
   flex: 1 1 200px;
+}
+
+.filter-bar__search {
+  width: 100%;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--text);
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 1.9rem 0.5rem 0.75rem;
   border-radius: 6px;
   font-size: 0.95rem;
+}
+
+.filter-bar__search-clear {
+  position: absolute;
+  top: 50%;
+  right: 0.5rem;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.filter-bar__search-clear:hover {
+  color: var(--accent-strong);
+  background: color-mix(in srgb, var(--accent) 15%, transparent);
 }
 
 .filter-bar__group {

@@ -7,17 +7,47 @@ const CAMPAIGN_FILTER_OPTIONS = CAMPAIGN_ORDER.filter(
   (c) => c !== 'Eye of the North' && c !== 'Bonus Mission Pack',
 )
 
+function ClearableSearch({ placeholder, value, onChange }) {
+  return (
+    <div className="filter-bar__search-wrap">
+      <input
+        type="text"
+        className="filter-bar__search"
+        placeholder={placeholder}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+      {value && (
+        <button
+          type="button"
+          className="filter-bar__search-clear"
+          onClick={() => onChange('')}
+          aria-label={`Clear ${placeholder.toLowerCase()}`}
+        >
+          ✕
+        </button>
+      )}
+    </div>
+  )
+}
+
 export default function FilterBar({ filters, onChange }) {
   const set = (patch) => onChange({ ...filters, ...patch })
 
   return (
     <div className="filter-bar">
-      <input
-        type="search"
-        className="filter-bar__search"
+      <ClearableSearch
         placeholder="Search skills..."
         value={filters.search}
-        onChange={(e) => set({ search: e.target.value })}
+        onChange={(search) => set({ search })}
+      />
+
+      <ClearableSearch
+        placeholder="Search regions..."
+        value={filters.regionSearch}
+        onChange={(regionSearch) =>
+          set(regionSearch.trim() ? { regionSearch, groupBy: 'region' } : { regionSearch })
+        }
       />
 
       <div className="filter-bar__group">

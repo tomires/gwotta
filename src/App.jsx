@@ -14,6 +14,7 @@ const skills = allSkills.filter((skill) => !IGNORED_SKILL_SLUGS.has(skill.slug))
 
 const DEFAULT_FILTERS = {
   search: '',
+  regionSearch: '',
   groupBy: 'profession',
   profession: '',
   campaign: '',
@@ -39,7 +40,12 @@ function App() {
     })
   }, [filters, isCaptured])
 
-  const groups = useMemo(() => GROUPERS[filters.groupBy](filtered), [filters.groupBy, filtered])
+  const groups = useMemo(() => {
+    const allGroups = GROUPERS[filters.groupBy](filtered)
+    const regionSearch = filters.regionSearch.trim().toLowerCase()
+    if (filters.groupBy !== 'region' || !regionSearch) return allGroups
+    return allGroups.filter((group) => group.key.toLowerCase().includes(regionSearch))
+  }, [filters, filtered])
 
   return (
     <div className="app-shell">
