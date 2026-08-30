@@ -16,11 +16,25 @@ function WikiLink({ title, children }) {
 // already drives the rest of the app.
 function groupByRegion(acquisition) {
   const map = new Map()
+  let lastCampaign = null
+  let lastLocation = null
   for (const entry of acquisition) {
     if (!entry.method || !/capture/i.test(entry.method)) continue
     if (!entry.npc) continue
-    const key = `${entry.campaign || ''}|||${entry.location || ''}`
-    if (!map.has(key)) map.set(key, { campaign: entry.campaign, location: entry.location, npcs: [] })
+
+    // The wiki often lists a second/third boss for the same spot without
+    // repeating the location (e.g. "Arlak Stoneleaf (Ice Caves of Sorrow)"
+    // then just "Virag Bladestone") — inherit the previous entry's location
+    // in that case, as long as we're still in the same campaign.
+    let location = entry.location
+    if (!location && entry.campaign === lastCampaign) location = lastLocation
+    if (location) {
+      lastCampaign = entry.campaign
+      lastLocation = location
+    }
+
+    const key = `${entry.campaign || ''}|||${location || ''}`
+    if (!map.has(key)) map.set(key, { campaign: entry.campaign, location, npcs: [] })
     map.get(key).npcs.push(entry.npc)
   }
   return [...map.values()]
